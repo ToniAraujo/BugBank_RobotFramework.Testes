@@ -17,6 +17,7 @@ Para execução do Robot é necessario instalar.
   - Robot Framework com o comando:
   pip install robotframework
 
+
 Passo a passo 🖥️
 - Baixar o instalador oficial
 - Acesse python.org e vá até a seção Downloads.
@@ -31,3 +32,4 @@ Passo a passo 🖥️
 - Abra o Prompt de Comando (pesquise por cmd no menu iniciar).
 - Digite:
 python --version
+
