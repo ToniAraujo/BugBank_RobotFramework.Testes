@@ -1,0 +1,44 @@
+# Ambiente Virtual
+.venv/
+venv/
+env/
+ENV/
+
+# Screenshots e evidências
+**/screenshots/
+**/evidence/
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# Resultados de testes do Robot Framework
+results/
+**/log.html
+**/report.html
+**/output.xml
+*.html
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE e Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ambiente local
+.env
+.env.local
+
+# Arquivos temporários
+*.tmp
+*.log
