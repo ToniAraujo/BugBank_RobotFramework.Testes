@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.12 on win32)" generated="2026-02-25T15:06:14.303049" rpa="false" schemaversion="5">
+<suite id="s1" name="BugBank RobotFramework.Testes" source="C:\Users\tonyk\Documents\Documentos_QA\Automações\BugBank_RobotFramework.Testes">
+<suite id="s1-s1" name="Robot Framework" source="C:\Users\tonyk\Documents\Documentos_QA\Automações\BugBank_RobotFramework.Testes\Robot Framework">
+<suite id="s1-s1-s1" name="Login" source="C:\Users\tonyk\Documents\Documentos_QA\Automações\BugBank_RobotFramework.Testes\Robot Framework\login.robot">
+<test id="s1-s1-s1-t1" name="CT07 – Login com credenciais corretas" line="49">
+<kw name="Dado que o usuário esteja na página de login" owner="loginSteps">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-25T15:06:15.067694" level="INFO">Opening browser 'Chrome' to base url 'https://bugbank.netlify.app/'.</msg>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-25T15:06:15.066878" elapsed="4.596693"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-25T15:06:19.664260" elapsed="0.286833"/>
+</kw>
+<status status="PASS" start="2026-02-25T15:06:15.064706" elapsed="4.887091"/>
+</kw>
+<kw name="Quando o usuário preencher o campo de email e senha com credenciais corretas" owner="loginSteps">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-25T15:06:19.960830" elapsed="0.078733"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-25T15:06:20.041452" level="INFO">Typing text 'email_teste@uorak.com' into text field 'xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[1]/input'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-25T15:06:20.040171" elapsed="0.414705"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-25T15:06:20.464199" level="INFO">Typing text 'eumesmo123' into text field 'xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[2]/div/input'.</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-25T15:06:20.458230" elapsed="0.354268"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-25T15:06:40.815532" level="INFO">Slept 20 seconds.</msg>
+<arg>20S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-25T15:06:20.813166" elapsed="20.003014"/>
+</kw>
+<kw name="E clicar no botão &quot;Acessar&quot;" owner="loginSteps">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ACESSAR}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-25T15:06:40.818164" elapsed="0.032015"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-25T15:06:40.851864" level="INFO">Clicking button 'xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[3]/button[1]'.</msg>
+<msg time="2026-02-25T15:06:42.344061" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-25T15:06:42.344832" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"&gt;...&lt;/button&gt; is not clickable at point (1954, 501). Other element would receive the click: &lt;div class="styles__Container-sc-8zteav-0 eaPGNe"&gt;...&lt;/div&gt;
+  (Session info: chrome=145.0.7632.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff78422aa55
+	0x7ff783f88630
+	0x7ff783d1d75d
+	0x7ff783d80b65
+	0x7ff783d7e27a
+	0x7ff783d7b115
+	0x7ff783d79fc7
+	0x7ff783d6b426
+	0x7ff783da19da
+	0x7ff783d6aca6
+	0x7ff783dc591c
+	0x7ff783d69098
+	0x7ff783d69f83
+	0x7ff784257810
+	0x7ff784251afd
+	0x7ff784272c1a
+	0x7ff783fa3345
+	0x7ff783fab81c
+	0x7ff783f91924
+	0x7ff783f91ad6
+	0x7ff783f77e47
+	0x7ff8f5e27374
+	0x7ff8f7e3cc91
+</msg>
+<arg>${BOTAO_ACESSAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2026-02-25T15:06:40.850730" elapsed="1.511504">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"&gt;...&lt;/button&gt; is not clickable at point (1954, 501). Other element would receive the click: &lt;div class="styles__Container-sc-8zteav-0 eaPGNe"&gt;...&lt;/div&gt;
+  (Session info: chrome=145.0.7632.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff78422aa55
+	0x7ff783f88630
+	0x7ff783d1d75d
+	0x7ff783d80b65
+	0x7ff783d7e27a
+	0x7ff783d7b115
+	0x7ff783d79fc7
+	0x7ff783d6b426
+	0x7ff783da19da
+	0x7ff783d6aca6
+	0x7ff783dc591c
+	0x7ff783d69098
+	0x7ff783d69f83
+	0x7ff784257810
+	0x7ff784251afd
+	0x7ff784272c1a
+	0x7ff783fa3345
+	0x7ff783fab81c
+	0x7ff783f91924
+	0x7ff783f91ad6
+	0x7ff783f77e47
+	0x7ff8f5e27374
+	0x7ff8f7e3cc91
+</status>
+</kw>
+<status status="FAIL" start="2026-02-25T15:06:40.816810" elapsed="1.545853">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"&gt;...&lt;/button&gt; is not clickable at point (1954, 501). Other element would receive the click: &lt;div class="styles__Container-sc-8zteav-0 eaPGNe"&gt;...&lt;/div&gt;
+  (Session info: chrome=145.0.7632.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff78422aa55
+	0x7ff783f88630
+	0x7ff783d1d75d
+	0x7ff783d80b65
+	0x7ff783d7e27a
+	0x7ff783d7b115
+	0x7ff783d79fc7
+	0x7ff783d6b426
+	0x7ff783da19da
+	0x7ff783d6aca6
+	0x7ff783dc591c
+	0x7ff783d69098
+	0x7ff783d69f83
+	0x7ff784257810
+	0x7ff784251afd
+	0x7ff784272c1a
+	0x7ff783fa3345
+	0x7ff783fab81c
+	0x7ff783f91924
+	0x7ff783f91ad6
+	0x7ff783f77e47
+	0x7ff8f5e27374
+	0x7ff8f7e3cc91
+</status>
+</kw>
+<status status="FAIL" start="2026-02-25T15:06:19.958851" elapsed="22.404132">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"&gt;...&lt;/button&gt; is not clickable at point (1954, 501). Other element would receive the click: &lt;div class="styles__Container-sc-8zteav-0 eaPGNe"&gt;...&lt;/div&gt;
+  (Session info: chrome=145.0.7632.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff78422aa55
+	0x7ff783f88630
+	0x7ff783d1d75d
+	0x7ff783d80b65
+	0x7ff783d7e27a
+	0x7ff783d7b115
+	0x7ff783d79fc7
+	0x7ff783d6b426
+	0x7ff783da19da
+	0x7ff783d6aca6
+	0x7ff783dc591c
+	0x7ff783d69098
+	0x7ff783d69f83
+	0x7ff784257810
+	0x7ff784251afd
+	0x7ff784272c1a
+	0x7ff783fa3345
+	0x7ff783fab81c
+	0x7ff783f91924
+	0x7ff783f91ad6
+	0x7ff783f77e47
+	0x7ff8f5e27374
+	0x7ff8f7e3cc91
+</status>
+</kw>
+<kw name="Então o sistema deve redirecionar para a página principal do usuário" owner="loginSteps">
+<status status="NOT RUN" start="2026-02-25T15:06:42.363712" elapsed="0.000616"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-25T15:06:42.365007" elapsed="2.945209"/>
+</kw>
+<doc>Página de Login</doc>
+<status status="FAIL" start="2026-02-25T15:06:15.055294" elapsed="30.255525">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"&gt;...&lt;/button&gt; is not clickable at point (1954, 501). Other element would receive the click: &lt;div class="styles__Container-sc-8zteav-0 eaPGNe"&gt;...&lt;/div&gt;
+  (Session info: chrome=145.0.7632.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff78422aa55
+	0x7ff783f88630
+	0x7ff783d1d75d
+	0x7ff783d80b65
+	0x7ff783d7e27a
+	0x7ff783d7b115
+	0x7ff783d79fc7
+	0x7ff783d6b426
+	0x7ff783da19da
+	0x7ff783d6aca6
+	0x7ff783dc591c
+	0x7ff783d69098
+	0x7ff783d69f83
+	0x7ff784257810
+	0x7ff784251afd
+	0x7ff784272c1a
+	0x7ff783fa3345
+	0x7ff783fab81c
+	0x7ff783f91924
+	0x7ff783f91ad6
+	0x7ff783f77e47
+	0x7ff8f5e27374
+	0x7ff8f7e3cc91
+</status>
+</test>
+<doc>Teste exemplo Robot Framework.</doc>
+<status status="FAIL" start="2026-02-25T15:06:14.504360" elapsed="30.837376"/>
+</suite>
+<status status="FAIL" start="2026-02-25T15:06:14.477617" elapsed="30.888476"/>
+</suite>
+<status status="FAIL" start="2026-02-25T15:06:14.324858" elapsed="31.051736"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="BugBank RobotFramework.Testes" id="s1" pass="0" fail="1" skip="0">BugBank RobotFramework.Testes</stat>
+<stat name="Robot Framework" id="s1-s1" pass="0" fail="1" skip="0">BugBank RobotFramework.Testes.Robot Framework</stat>
+<stat name="Login" id="s1-s1-s1" pass="0" fail="1" skip="0">BugBank RobotFramework.Testes.Robot Framework.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
