@@ -90,5 +90,14 @@ Criação de conta com saldo de R$ 1.000,00
     Wait Until Element Is Visible  xpath=/html/body/div[1]/div/div[3]/div/div[1]/a     timeout=5s
     Click Element    xpath=/html/body/div[1]/div/div[3]/div/div[1]/a
     
-
+##CT006
+E que o usuário deixe inativa a opção "Criar conta com saldo"
+    Wait Until Element Is Visible  ${BOTAO_CADASTRAR}  timeout=5s
+    Quando o usuário preencher Nome, Email, Senha e Confirmação de senha corretamente
+        
+Então o sistema deve criar a conta com saldo de R$ 0,00
+    Wait Until Element Is Visible  ${LOCAL_TEXTO_MODAL}  timeout=5s
+    Element Should Contain  ${LOCAL_TEXTO_MODAL}  criada com sucesso
+    Wait Until Element Is Visible  xpath=/html/body/div[1]/div/div[3]/div/div[1]/a     timeout=5s
+    Click Element    xpath=/html/body/div[1]/div/div[3]/div/div[1]/a
     

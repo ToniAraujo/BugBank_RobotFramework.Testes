@@ -47,11 +47,3 @@ CT006 – Cadastro com opção Criar conta sem saldo
     Quando o usuário preencher Nome, Email, Senha e Confirmação de senha corretamente
     E confirmar o cadastro
     Então o sistema deve criar a conta com saldo de R$ 0,00
-
-CT007 – Cadastro realizado com sucesso
-    [Documentation]    Página de Cadastro
-    Dado que o usuário esteja na página de cadastro
-    Quando o usuário preencher Nome, Email, Senha e Confirmação de senha corretamente
-    E que o usuário ative a opção "Criar conta com saldo"
-    Quando o usuário confirmar o cadastro
-    Então o sistema deve exibir o número da conta criada
