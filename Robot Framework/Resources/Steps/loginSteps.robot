@@ -93,4 +93,11 @@ Então o sistema deve redirecionar para a página principal do usuário
     Sleep                          2s
     Element Should Contain          ${BOAS_VINDAS}   ${TEXTO_BOAS_VINDAS}
 
+
+Open Browser To Login Page
+    Open Browser    ${BASE_URL}    chrome
+    Maximize Browser Window
+    Quando o usuário preencher o campo de email e senha com credenciais corretas
+    Então o sistema deve redirecionar para a página principal do usuário
+
                                              

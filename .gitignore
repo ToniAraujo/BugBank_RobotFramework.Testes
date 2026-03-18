@@ -12,11 +12,11 @@ ENV/
 **/*.jpeg
 
 # Resultados de testes do Robot Framework
+# (rode os testes usando a pasta results para manter os arquivos de saída organizados)
 results/
-**/log.html
-**/report.html
-**/output.xml
-*.html
+results/*.log
+results/*.html
+results/*.xml
 
 # Cache do Python
 __pycache__/
