@@ -95,8 +95,8 @@ Então o sistema deve redirecionar para a página principal do usuário
 
 
 Open Browser To Login Page
-    Open Browser    ${BASE_URL}    chrome
-    Maximize Browser Window
+    Open Browser    ${BASE_URL}    ${BROWSER}    options=${CHROME_OPTIONS}
+    Run Keyword If    '${CHROME_OPTIONS}' == ''    Maximize Browser Window
     Quando o usuário preencher o campo de email e senha com credenciais corretas
     Então o sistema deve redirecionar para a página principal do usuário
 

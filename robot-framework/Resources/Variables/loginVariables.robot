@@ -1,7 +1,15 @@
 *** Variables ***
 
 ${BASE_URL}                      https://bugbank.netlify.app/
-${BROWSER}                        Chrome
+${BROWSER}                        chrome
+
+# Chrome options for normal execution (leave empty)
+${CHROME_OPTIONS}                
+
+# Chrome options for headless execution in CI/CD pipelines
+# Uncomment the line below and comment the line above to use headless mode
+# Note: Some timing adjustments may be needed for headless mode
+# ${CHROME_OPTIONS}                add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080");add_argument("--disable-gpu")
 
 ${BOTAO_ACESSAR}                  xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[3]/button[1]
 ${CAMPO_MSG_EMAIL_OBRIGATORIO}    xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[1]/p

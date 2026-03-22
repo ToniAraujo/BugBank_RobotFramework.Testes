@@ -1,0 +1,7 @@
+# Dependências para testes Robot Framework com Selenium
+robotframework==7.4.1
+robotframework-seleniumlibrary==6.2.0
+webdriver-manager==4.0.1
+
+# Dependências adicionais para CI/CD
+selenium==4.15.2

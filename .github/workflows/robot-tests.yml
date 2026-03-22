@@ -1,0 +1,52 @@
+name: Robot Framework Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Instalar Chrome e ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+          webdriver-manager update chromedriver
+          # Verificar instalação
+          chromedriver --version
+
+      - name: Verificar instalação das bibliotecas
+        run: |
+          python -c "import robot; print(f'Robot Framework: {robot.__version__}')"
+          python -c "import SeleniumLibrary; print('SeleniumLibrary: OK')"
+          python -c "import webdriver_manager; print('webdriver-manager: OK')"
+
+      - name: Executar testes Robot em headless
+        run: |
+          python -m robot -d results \
+            --variable BROWSER:chrome \
+            --variable CHROME_OPTIONS:add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080") \
+            "robot-framework/tests"
+
+      - name: Publicar resultados como artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: robot-results
+          path: results

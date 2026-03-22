@@ -2,20 +2,89 @@
 Projeto com Robot Framework testando o site Bug Bank
 
 ## Estrutura do Projeto
-- 📁 Projeto
-  - 📁 Resources
-    - 📁 Variables
-    - 📁 Steps
-  - 📁 Test
+- 📁 robot-framework/
+  - 📁 Resources/
+    - 📁 Variables/
+    - 📁 Steps/
+  - 📁 tests/
     - 📄 cadastro.robot
     - 📄 login.robot
-    - ...
+    - 📄 transferencia.robot
+- 📁 install/
+  - 📄 install_dependencies.sh (Linux/Mac)
+  - 📄 install_dependencies.bat (Windows)
+  - 📄 .gitkeep
+- 📄 requirements.txt
+- 📄 CI_CD_SETUP.md
+- 📁 .github/workflows/
 
-## Instalação do Robot Framework
-Para execução do Robot é necessario instalar.
-  - Python
-  - Robot Framework com o comando:
-  pip install robotframework
+## 🚀 Instalação Rápida
+
+### Windows
+```bash
+# Execute o script de instalação
+install\install_dependencies.bat
+```
+
+### Linux/Mac
+```bash
+# Execute o script de instalação
+chmod +x install/install_dependencies.sh
+./install/install_dependencies.sh
+```
+
+### Instalação Manual
+
+1. **Criar ambiente virtual** (recomendado):
+   ```bash
+   python -m venv .venv
+   ```
+
+2. **Ativar ambiente virtual**:
+   - Windows: `.venv\Scripts\activate`
+   - Linux/Mac: `source .venv/bin/activate`
+
+3. **Instalar dependências**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Verificar instalação**:
+   ```bash
+   python -c "import robot; print(f'Robot Framework: {robot.__version__}')"
+   webdriver-manager update chromedriver
+   ```
+
+## ▶️ Executando os Testes
+
+### Desenvolvimento (Local)
+```bash
+python -m robot -d results "robot-framework/tests"
+```
+
+### CI/CD (GitHub Actions)
+Os testes são executados automaticamente via workflow `.github/workflows/robot-tests.yml` em pushes e pull requests para a branch `main`.
+
+## 📊 Resultados dos Testes
+
+Após a execução, os relatórios ficam em `results/`:
+- `report.html` - Relatório visual
+- `log.html` - Log detalhado
+- `output.xml` - Resultados em XML
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Robot Framework** 6.1.1 - Framework de automação de testes
+- **SeleniumLibrary** 6.2.0 - Biblioteca para testes web
+- **Selenium** 4.15.2 - WebDriver para automação
+- **webdriver-manager** 4.0.1 - Gerenciamento automático do ChromeDriver
+- **Chrome/Chromium** - Navegador para execução dos testes
+
+## 📋 Pré-requisitos
+
+- Python 3.8+
+- Google Chrome ou Chromium
+- Git (para controle de versão)
 
 
 Passo a passo 🖥️
@@ -33,7 +102,3 @@ Passo a passo 🖥️
 - Digite:
 python --version
 
-## Comando para execução de toda suite
-
-Para executar os testes por completo utilizando toda suite, é necessário que esteja dentro do diretório /Robot Framework. 
-Execute o comando   python -m robot Tests  

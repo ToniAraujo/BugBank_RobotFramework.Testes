@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation     Teste exemplo Robot Framework.
 Library           SeleniumLibrary
-Test Setup        Open Browser    ${BASE_URL}    chrome
+Resource          ../Resources/Variables/loginVariables.robot
+Test Setup        Open Browser    ${BASE_URL}    ${BROWSER}    options=${CHROME_OPTIONS}
 Test Teardown     Close All Browsers
 Resource          ../Resources/Steps/cadastroSteps.robot
 
