@@ -38,12 +38,25 @@ jobs:
           python -c "import SeleniumLibrary; print('SeleniumLibrary: OK')"
           python -c "import webdriver_manager; print('webdriver-manager: OK')"
 
-      - name: Executar testes Robot em headless
+      - name: Ativar modo headless para CI/CD
         run: |
-          python -m robot -d results \
-            --variable BROWSER:chrome \
-            --variable CHROME_OPTIONS:add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080") \
-            "robot-framework/tests"
+          python << 'EOF'
+import re
+with open('robot-framework/Resources/Variables/loginVariables.robot', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Comentar a linha vazia
+content = content.replace('${CHROME_OPTIONS}                \n', '# ${CHROME_OPTIONS}                \n')
+# Descomentar a linha headless
+content = content.replace('# ${CHROME_OPTIONS}                add_argument(', '${CHROME_OPTIONS}                add_argument(')
+
+with open('robot-framework/Resources/Variables/loginVariables.robot', 'w', encoding='utf-8') as f:
+    f.write(content)
+print('✓ Headless ativado para pipeline CI/CD')
+EOF
+
+      - name: Executar testes Robot em headless
+        run: python -m robot -d results "robot-framework/tests"
 
       - name: Publicar resultados como artefatos
         if: always()
