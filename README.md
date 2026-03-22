@@ -1,4 +1,7 @@
 # BugBank_RobotFramework.Testes
+
+[![.github/workflows/robot-tests.yml](https://github.com/ToniAraujo/BugBank_RobotFramework.Testes/actions/workflows/robot-tests.yml/badge.svg)](https://github.com/ToniAraujo/BugBank_RobotFramework.Testes/actions/workflows/robot-tests.yml)
+
 Projeto com Robot Framework testando o site Bug Bank
 
 ## Estrutura do Projeto
