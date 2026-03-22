@@ -41,12 +41,12 @@ jobs:
       - name: Ativar modo headless para CI/CD
         run: |
           FILE="robot-framework/Resources/Variables/loginVariables.robot"
-          # Descomenta a linha headless (remove o # no início)
-          sed -i 's/^# \(\${CHROME_OPTIONS}\s*add_argument/\1add_argument/' "$FILE"
-          # Comenta a linha vazia (adiciona # no início)
-          sed -i '/^\${CHROME_OPTIONS}\s*$/s/^/# /' "$FILE"
+          # Comenta a linha vazia do CHROME_OPTIONS
+          sed -i 's/^\${CHROME_OPTIONS}\s*$/# \${CHROME_OPTIONS}/' "$FILE"
+          # Descomenta a linha headless
+          sed -i 's/^# \(\${CHROME_OPTIONS}\)/\${CHROME_OPTIONS}/' "$FILE"
           echo "✓ Modo headless ativado na pipeline"
-          cat "$FILE" | grep -A 1 "CHROME_OPTIONS"
+          cat "$FILE" | grep -A 2 "CHROME_OPTIONS"
 
       - name: Executar testes Robot em headless
         run: python -m robot -d results "robot-framework/tests"
