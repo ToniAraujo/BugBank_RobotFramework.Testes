@@ -74,7 +74,8 @@ Quando o usuário preencher Nome, Email, Senha e Confirmação de senha corretam
     
     
 E confirmar o cadastro
-    Click Button    ${BOTAO_CADASTRAR}
+    Scroll Element Into View    ${BOTAO_CADASTRAR}
+    Click Button                ${BOTAO_CADASTRAR}
     
     
 Então o sistema deve criar a conta com saldo de R$ 1.000,00
@@ -88,7 +89,8 @@ Criação de conta com saldo de R$ 1.000,00
     Wait Until Element Is Visible  ${LOCAL_TEXTO_MODAL}  timeout=5s
     Element Should Contain  ${LOCAL_TEXTO_MODAL}  criada com sucesso
     Wait Until Element Is Visible  xpath=/html/body/div[1]/div/div[3]/div/div[1]/a     timeout=5s
-    Click Element    xpath=/html/body/div[1]/div/div[3]/div/div[1]/a
+    Scroll Element Into View       xpath=/html/body/div[1]/div/div[3]/div/div[1]/a
+    Click Element                  xpath=/html/body/div[1]/div/div[3]/div/div[1]/a
     
 ##CT006
 E que o usuário deixe inativa a opção "Criar conta com saldo"

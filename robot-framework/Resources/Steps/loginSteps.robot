@@ -29,6 +29,7 @@ Então o sistema deve exibir uma mensagem de erro indicando que os campos de ema
 Quando o usuário clicar no botão "Acessar" sem preencher o campo de email
     Wait Until Element Is Visible   ${BOTAO_ACESSAR}    timeout=5s    
     Input Text                      ${CAMPO_SENHA}       ${SENHA_VALIDA}
+    Scroll Element Into View          ${BOTAO_ACESSAR}
     E clicar no botão "Acessar"
 
 Então o sistema deve exibir uma mensagem de erro indicando que o campo de email é obrigatório
@@ -39,6 +40,7 @@ Então o sistema deve exibir uma mensagem de erro indicando que o campo de email
 Quando o usuário clicar no botão "Acessar" sem preencher o campo de senha
     Wait Until Element Is Visible   ${BOTAO_ACESSAR}    timeout=5s
     Input Text                      ${CAMPO_EMAIL}    ${EMAIL_VALIDO}
+    Scroll Element Into View          ${BOTAO_ACESSAR}
     E clicar no botão "Acessar"
 
 Então o sistema deve exibir uma mensagem de erro indicando que o campo de senha é obrigatório
@@ -47,9 +49,10 @@ Então o sistema deve exibir uma mensagem de erro indicando que o campo de senha
 
 ##CT004
 Quando o usuário preencher o campo de email com um endereço de email não cadastrado e clicar no botão "Acessar"
-    Wait Until Element Is Visible   ${BOTAO_ACESSAR}    timeout=5s
-    Input Text                      ${CAMPO_EMAIL}    ${EMAIL_NAO_CADASTRADO}
-    Input Text                      ${CAMPO_SENHA}    ${SENHA_VALIDA}
+    Wait Until Element Is Visible     ${BOTAO_ACESSAR}    timeout=5s
+    Input Text                        ${CAMPO_EMAIL}    ${EMAIL_NAO_CADASTRADO}
+    Input Text                        ${CAMPO_SENHA}    ${SENHA_VALIDA}
+    Scroll Element Into View          ${BOTAO_ACESSAR}
     E clicar no botão "Acessar"
 
 Então o sistema deve exibir uma mensagem de erro indicando que o email não está cadastrado
@@ -64,8 +67,9 @@ Quando o usuário preencher o campo de email cadastrado e o campo de senha com u
     
 
 E clicar no botão "Acessar"
-    Wait Until Element Is Visible   ${BOTAO_ACESSAR}    timeout=5s
-    Click Button                    ${BOTAO_ACESSAR}
+    Wait Until Element Is Visible     ${BOTAO_ACESSAR}    timeout=5s
+    Scroll Element Into View          ${BOTAO_ACESSAR}
+    Click Button                      ${BOTAO_ACESSAR}
 
 Então o sistema deve exibir uma mensagem de erro indicando que a senha está incorreta
     Wait Until Element Is Visible   ${LOCAL_USUARIO_NAO_CADASTRADO}    timeout=5s
@@ -73,20 +77,22 @@ Então o sistema deve exibir uma mensagem de erro indicando que a senha está in
 
 ##CT006
 Quando o usuário preencher o email válido, deixa senha vazia e clicar no botão "Acessar"
-    Wait Until Element Is Visible   ${CAMPO_EMAIL}   timeout=5s
-    Input Text                      ${CAMPO_EMAIL}    ${EMAIL_VALIDO}
-    Input Text                      ${CAMPO_SENHA}    ${SPACE} 
+    Wait Until Element Is Visible     ${CAMPO_EMAIL}   timeout=5s
+    Input Text                        ${CAMPO_EMAIL}    ${EMAIL_VALIDO}
+    Input Text                       ${CAMPO_SENHA}    ${SPACE} 
+    Scroll Element Into View          ${BOTAO_ACESSAR}
     E clicar no botão "Acessar"
 
 
 ##CT007
 Quando o usuário preencher o campo de email e senha com credenciais corretas
-    Wait Until Element Is Visible  ${BOTAO_REGISTRAR}  timeout=5s
-    Click Button                   ${BOTAO_REGISTRAR}
+    Wait Until Element Is Visible     ${BOTAO_REGISTRAR}  timeout=5s
+    Scroll Element Into View          ${BOTAO_REGISTRAR}
+    Click Button                      ${BOTAO_REGISTRAR}
     Criação de conta com saldo de R$ 1.000,00
-    Wait Until Element Is Visible   ${CAMPO_EMAIL}   timeout=5s
-    Input Text                      ${CAMPO_EMAIL}    ${EMAIL_VALIDO}
-    Input Text                      ${CAMPO_SENHA}    ${SENHA_VALIDA}
+    Wait Until Element Is Visible     ${CAMPO_EMAIL}   timeout=5s
+    Input Text                        ${CAMPO_EMAIL}    ${EMAIL_VALIDO}
+    Input Text                        ${CAMPO_SENHA}    ${SENHA_VALIDA}
     E clicar no botão "Acessar"
 
 Então o sistema deve redirecionar para a página principal do usuário
