@@ -5,10 +5,10 @@ ${BROWSER}                        chrome
 
 # ========== CONFIGURAÇÃO DO CHROME ==========
 # Para desenvolvimento LOCAL (modo interativo com interface):
-${CHROME_OPTIONS}                
+# ${CHROME_OPTIONS}                
 
 # Para PIPELINE CI/CD (headless no Linux), descomente a linha abaixo:
-# ${CHROME_OPTIONS}                add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080");add_argument("--disable-gpu")
+${CHROME_OPTIONS}                add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080");add_argument("--disable-gpu")
 # ============================================
 
 ${BOTAO_ACESSAR}                  xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[3]/button[1]
