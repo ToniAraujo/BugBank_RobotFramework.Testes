@@ -6,8 +6,8 @@ Resource   ../../Resources/Variables/cadastroVariables.robot
 
 ##CT001
 Dado que o usuário esteja na página de cadastro
-    Maximize Browser Window
-    Wait Until Element Is Visible  ${BOTAO_REGISTRAR}  timeout=5s
+    Wait Until Element Is Visible     ${BOTAO_REGISTRAR}  timeout=5s
+    Scroll Element Into View          ${BOTAO_REGISTRAR}
     Click Button    ${BOTAO_REGISTRAR}
     
     

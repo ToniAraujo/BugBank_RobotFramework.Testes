@@ -8,7 +8,7 @@ ${BROWSER}                        chrome
 # ${CHROME_OPTIONS}                
 
 # Para PIPELINE CI/CD (headless no Linux), descomente a linha abaixo:
-${CHROME_OPTIONS}                add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--remote-debugging-port=9222");add_argument("--window-size=1920,1080")
+${CHROME_OPTIONS}                add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--remote-debugging-port=9222");add_argument("--window-size=2560,1440")
 # ============================================
 
 ${BOTAO_ACESSAR}                  xpath=/html/body/div[1]/div/div[2]/div/div[1]/form/div[3]/button[1]

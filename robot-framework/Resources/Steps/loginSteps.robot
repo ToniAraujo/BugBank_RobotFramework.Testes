@@ -15,6 +15,7 @@ Dado que o usuário esteja na página de login
 
 Quando o usuário clicar no botão "Acessar" sem preencher os campos de email e senha
     Wait Until Element Is Visible   ${BOTAO_ACESSAR}    timeout=5s
+    Scroll Element Into View          ${BOTAO_ACESSAR}
     E clicar no botão "Acessar"
 
 
