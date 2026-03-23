@@ -27,14 +27,15 @@ jobs:
       - name: Instalar Google Chrome
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget gnupg unzip
+          sudo apt-get install -y wget gnupg unzip curl
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
           google-chrome --version
 
-      - name: Instalar ChromeDriver
+      - name: Instalar ChromeDriver compatível
         run: |
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f 1)
+          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
@@ -49,10 +50,7 @@ jobs:
       - name: Ativar modo headless para CI/CD
         run: |
           FILE="robot-framework/Resources/Variables/loginVariables.robot"
-          # Comenta a linha vazia do CHROME_OPTIONS
-          sed -i 's/^\${CHROME_OPTIONS}\s*$/# \${CHROME_OPTIONS}/' "$FILE"
-          # Descomenta a linha headless
-          sed -i 's/^# \(\${CHROME_OPTIONS}\)/\${CHROME_OPTIONS}/' "$FILE"
+          sed -i 's/^# \(\${CHROME_OPTIONS}.*headless.*\)/\1/' "$FILE"
           echo "✓ Modo headless ativado na pipeline"
           cat "$FILE" | grep -A 2 "CHROME_OPTIONS"
 
