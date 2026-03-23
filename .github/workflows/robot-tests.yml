@@ -34,11 +34,12 @@ jobs:
 
       - name: Instalar ChromeDriver compatível
         run: |
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f 1)
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
+          VERSION="146.0.7680.153"
+          echo "Instalando ChromeDriver versão $VERSION"
+          wget https://storage.googleapis.com/chrome-for-testing-public/$VERSION/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          rm -rf chromedriver-linux64 chromedriver-linux64.zip
           chromedriver --version
 
       - name: Verificar instalação das bibliotecas
